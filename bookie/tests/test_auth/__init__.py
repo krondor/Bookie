@@ -77,14 +77,15 @@ class TestAuthWeb(TestCase):
             "Should have 'Failed login' in the resp: " + str(res))
 
     def test_login_null(self):
-	"""Verify a null login"""
+        """Verify null login form submission fails"""
 
-	user_data = {'login': '',
+        user_data = {'login': '',
 		     'password': '',
 		     'form.submitted': 'true'}
 
-	res = self.testapp.post('/login',
+        res = self.testapp.post('/login',
 				params=user_data)
+	
 	eq_(res.status, "200 OK",
 	    msg='status is 200 OK, ' + res.status)
 
