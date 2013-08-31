@@ -84,11 +84,11 @@ class TestAuthWeb(TestCase):
 		     'form.submitted': 'true'}
 
         res = self.testapp.post('/login',
-				params=user_data)
+                                params=user_data)
 	
-	eq_(res.status, "200 OK",
+        eq_(res.status, "200 OK",
 	    msg='status is 200 OK, ' + res.status)
 
 	# should end up back at login with an error message
-	ok_('Failed login' in str(res),
-	    "Should have 'Failed login' in the resp: " + str(res))
+        ok_('Failed login' in str(res),
+            "Should have 'Failed login' in the resp: " + str(res))
